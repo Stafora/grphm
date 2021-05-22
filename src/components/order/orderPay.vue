@@ -33,15 +33,15 @@
                     v-model="cardNumber" 
                     @blur="$v.cardNumber.$touch()" 
                     id="order-card-number"
-                    placeholder="XXXX XXXX XXXX XXXX XXXX"
-                    mask="9999 9999 9999 9999 9999"
+                    placeholder="XXXX XXXX XXXX XXXX"
+                    mask="9999 9999 9999 9999"
                 ></input-mask>
                 <div class="form-error" v-if="$v.cardNumber.$error">
                     <template v-if="!$v.cardNumber.minLength">
-                        Длина номера карты, не должнен быть меньше: {{ $v.cardNumber.$params.minLength.min }} цифр
+                        Длина номера карты, не должнен быть меньше: 16 цифр
                     </template>
                     <template v-if="!$v.cardNumber.maxLength">
-                        Длина номера карты, не должна превышать: {{ $v.cardNumber.$params.maxLength.max }} цифр
+                        Длина номера карты, не должна превышать: 16 цифр
                     </template>
                     <template v-else>
                         Номер карты обязателен к заполнению
@@ -139,8 +139,8 @@
             },
             cardNumber: {
                 required,
-                minLength: minLength(24),
-                maxLength: maxLength(24),
+                minLength: minLength(19),
+                maxLength: maxLength(19),
             },
             cardDateEnd: {
                 required,
